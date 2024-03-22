@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 
 // Transient => Her adımda (her talepte) yeni 1 instance.
 builder.Services.AddSingleton<IProductService, ProductManager>();
+builder.Services.AddSingleton<ICategoryService, CategoryManager>(); //Hatayı verdiren satır burası
 
 var app = builder.Build();
 

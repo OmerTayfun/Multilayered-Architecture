@@ -15,12 +15,17 @@ namespace WebAPI.Controllers
         {
             this.categoryService = categoryService;
         }
+        [HttpPost("Ekle")]
+        public void Add([FromBody] Category category)
+        {
+            categoryService.Add(category);
+        }
         [HttpGet]
         public List<Category> GetAll()
         {
             return categoryService.GetAll();
         }
-        [HttpDelete]
+        [HttpPost("Delete")]
         public void Delete([FromBody] int id)
         {
             var category = categoryService.GetById(id);

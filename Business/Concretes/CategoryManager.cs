@@ -12,9 +12,9 @@ namespace Business.Concretes
     {
         List<Category> categories;
 
-        public CategoryManager(List<Category> categories)
+        public CategoryManager(//Category categories'di bizde)
         {
-            this.categories = categories;     
+            this.categories = new List<Category>();   
         }
 
         public void Add(Category category)
@@ -34,7 +34,7 @@ namespace Business.Concretes
 
         public Category GetById(int id)
         {
-            return categories.Find(x => x.Id == id);
+           return categories.Find(x=>x.Id==id);
         }
 
         public void Update(Category category)
