@@ -24,7 +24,7 @@ namespace Business.Concretes
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            products.Remove(GetById(id));
         }
 
         public List<Product> GetAll()
@@ -34,12 +34,23 @@ namespace Business.Concretes
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return products.Find(y => y.Id == id);
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            int id = product.Id;
+            Product productId = GetById(id);
+
+            if (productId!=null)
+            {
+                int indexProduct=products.IndexOf(productId);
+                products[indexProduct]= product;
+            }
+            else
+            {
+                throw new Exception("Güncellenecek ürün bulunamadı.");
+            }
         }
     }
 }

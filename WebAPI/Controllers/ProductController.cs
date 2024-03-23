@@ -18,17 +18,26 @@ namespace WebAPI.Controllers
             this.productService = productService;
         }
 
-        [HttpGet]
-        public List<Product> GetAll()
-        {
-            return productService.GetAll();
-        }
-
+                
         [HttpPost]
         public void Add([FromBody] Product product)
         {
             productService.Add(product);
         }
-        
+        [HttpDelete("Ürün Sil{id}")]
+        public void Delete(int id)
+        {
+            productService.Delete(id);
+        }
+        [HttpPut("Güncelle")]
+        public void Update([FromBody]Product product)
+        {
+            productService.Update(product);
+        }
+        [HttpGet("Listele")]
+        public List<Product> GetAll()
+        {
+            return productService.GetAll();
+        }
     }
 }
