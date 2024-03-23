@@ -20,16 +20,23 @@ namespace WebAPI.Controllers
         {
             categoryService.Add(category);
         }
-        [HttpGet]
+        [HttpDelete("Sil{id}")]
+        public void Delete(int id)
+        {
+            categoryService.Delete(id);
+        }
+        [HttpPut("Güncelleme")]
+        public void Update([FromBody]Category category)
+        {
+            categoryService.Update(category);
+        }
+
+        [HttpGet("Listele")]
         public List<Category> GetAll()
         {
             return categoryService.GetAll();
         }
-        [HttpPost("Delete")]
-        public void Delete([FromBody] int id)
-        {
-            var category = categoryService.GetById(id);
-        }
+        
 
     }
 }

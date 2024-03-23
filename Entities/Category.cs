@@ -11,11 +11,13 @@ namespace Entities
         public Category()
         {
         }
-        public Category(int id,string categoryName,string description)
+        public Category(int id,string categoryName)
         {
             Id= id;
             CategoryName= categoryName;
-            Description= description;
+            
+            //Description alanının nesne oluştururken gerekli olmadığı kanısına vardığımız için 
+            //ctor içerisinde description tutmadık.
         }
         public int Id { get; set; }
         public string CategoryName { get; set; }
